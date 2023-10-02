@@ -13,12 +13,18 @@ import java.util.List;
 public class EventController {
 
     @GetMapping
-        public String displayAllEvents(Model model) {
+    public String displayAllEvents(Model model) {
         List<String> events = new ArrayList<>();
         events.add("Halloween");
         events.add("Thanksgiving");
         model.addAttribute("events", events);
         return "events/index";
-        }
+    }
+
+    //route: events/create
+    @GetMapping("create")
+    public String renderCreateEventForm() {
+        return "events/create";
+    }
 
 }
