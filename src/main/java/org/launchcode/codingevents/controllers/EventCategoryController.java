@@ -1,5 +1,6 @@
 package org.launchcode.codingevents.controllers;
 
+import jakarta.validation.Valid;
 import org.launchcode.codingevents.data.EventCategoryRepository;
 import org.launchcode.codingevents.models.EventCategory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class EventCategoryController {
     @Autowired
     private EventCategoryRepository eventCategoryRepository;
 
-    @GetMapping ("index")
+    @GetMapping
     public String displayAllCategories (Model model) {
         model.addAttribute("title", "All Categories");
         model.addAttribute("categories", eventCategoryRepository.findAll());
@@ -33,13 +34,13 @@ public class EventCategoryController {
     }
 
     @PostMapping ("create")
-    public String processCreateEventCategoryForm (@ModelAttribute EventCategory newEventCategory, Errors errors, Model model) {
+    public String processCreateEventCategoryForm (@Valid @ModelAttribute EventCategory newEventCategory, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create Category");
             model.addAttribute(new EventCategory());
         }
         eventCategoryRepository.save(newEventCategory);
-        return "eventCategories/create";
+        return "redirect:/eventCategories";
     }
 
 }
