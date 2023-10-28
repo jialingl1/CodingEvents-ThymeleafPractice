@@ -14,7 +14,7 @@ public class EventCategory {
     @GeneratedValue
     private int id;
 
-
+    
     private String name;
 
     public EventCategory(String name) {

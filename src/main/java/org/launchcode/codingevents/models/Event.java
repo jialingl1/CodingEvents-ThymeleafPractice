@@ -14,6 +14,7 @@ public class Event {
     private int id;
 
     //private static int nextId = 1; --doesn't need anynmore as @Id and @GeneratedValue will do this for us
+
     private String name;
     private String description;
 
