@@ -7,11 +7,11 @@ import jakarta.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Event {
+public class Event extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private int id;
+//    @Id
+//    @GeneratedValue
+//    private int id;
 
     //private static int nextId = 1; --doesn't need anynmore as @Id and @GeneratedValue will do this for us
 
@@ -43,25 +43,25 @@ public class Event {
         this.description = description;
     }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    }
 
     @Override
     public String toString() {
         return name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Event event = (Event) o;
-        return id == event.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Event event = (Event) o;
+//        return id == event.id;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id);
+//    }
 }
